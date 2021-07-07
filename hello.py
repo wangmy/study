@@ -1,5 +1,3 @@
-print("hello world")
-
 ##列表
 foods = [['虾饺1', '龟苓膏1', '薄荷冰粉1', '四川凉面', '草莓圣代'],['虾饺2', '龟苓膏2', '薄荷冰粉', '四川凉面', '草莓圣代'],['虾饺3', '龟苓膏3', '薄荷冰粉3', '四川凉面', '草莓圣代']]
 print(foods[0][0])
@@ -20,19 +18,7 @@ print(foods[1:])
 # 此处  用 print(foods[0:4]) 代替，因为冒号左边不填相当于等于填了 0。
 print(foods[:4])
 
-print("############################### 字典 ###############################")
-############################### 字典
-animal_info = {'哺乳类动物': '虎', '鱼类动物': '三文鱼', '家禽类动物': '鸡'}
-# print(animal_info['dd']) 如果没有'dd'这个健，会报错
-# 使用get 如果没有'dd'这个健，返回None
-print("字典获取值{}".format(animal_info.get('dd'))) 
 
-# for in 是for 循环取key值
-for i in animal_info:
-    print(i)
-
-
-print("############################### if ###############################")
 ############################### if
 skills = ['英语六级', '吉他']
 
@@ -146,7 +132,7 @@ print(baby_list)
 ######################### 练习：判断是否是闰年 #########################
 def isLeapyear():
     year = 1899
-    while year < 2020:
+    while year <= 2021:
         year += 1
         if str(year)[-2:] == '00':
             if str(year/400)[-1] == '0':
@@ -155,14 +141,15 @@ def isLeapyear():
             if str(year/4)[-1] == '0':
                 print('是闰年{}'.format(year))
 
-def isLeapyear2():
+def isLeapYear():
     # 设置起始年份
     year = 1899
-    while year < 2020:
+    while year <= 2021:
         year +=1
-        if (str(year)[2:] == '00' and str(year/400)[-1] == '0') or (str(year)[2:] != '00' and str(year/4)[-1] == '0'):
+        
+        if (str(year)[2:] == '00' and str(year/400)[-1] == '0') or str(year/4)[-1] == '0':
             continue
         
         print('是平年{}'.format(year))
-# isLeapyear2()
 
+isLeapYear()
