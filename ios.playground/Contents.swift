@@ -39,3 +39,36 @@ let view1: UIView? = UIView()
 if view1 != nil {
     view1!.backgroundColor = .red
 }
+
+
+//更新数据
+public func update(model: [RankModel]?) {
+    guard let model = model else {
+        return
+    }
+    if model.count >= 3 {
+        topModels = Array(model.prefix(3))
+        bottomModels = Array(model.suffix(model.count - 3))
+    } else {
+        topModels = model
+        bottomModels = []
+    }
+    tableView.reloadData()
+}
+
+public class RankConfiguration: Codable {
+    var key: String = ""
+    var name: String  = ""
+    var subName: [String] = []
+    var deltaSeconds: Int = 0
+    var type: String = ""
+    
+    enum CodingKeys: String, CodingKey {
+        case key
+        case name
+        case subName
+        case deltaSeconds
+        case type
+    }
+}
+
